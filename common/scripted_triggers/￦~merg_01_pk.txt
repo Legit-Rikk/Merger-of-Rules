@@ -4118,6 +4118,11 @@ is_a_planet_megastructure = {
 
 # Turning this into a dynamic trigger
 planet_is_hostile_or_crisis = {
+	# Safety Off
+	AND = {
+		merg_has_safety_off = yes
+		always = no
+	}
 	exists = owner
 	owner = {
 		OR = {
@@ -4130,11 +4135,6 @@ planet_is_hostile_or_crisis = {
 					has_country_flag = acemod_can_target_hostile_with_colossus # Fallback flag in case needed.
 					is_crisis_faction = yes # Narrow down to just crises as to not alter more than needed.
 				}
-			}
-			# Safety Off
-			AND = {
-				merg_has_safety_off = yes
-				is_same_value = from.owner
 			}
 		}
 	}
